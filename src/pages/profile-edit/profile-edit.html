@@ -1,0 +1,80 @@
+<!--
+  Generated template for the ProfileEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content-image-background">
+ <form [formGroup]="profileForm">
+		<ion-list id="container">
+
+			<h4 class="title-padding">Edit Profile</h4>
+
+			<div class="image-padding">
+				<img *ngIf="!display_taken_image" src="{{image_link}}" class="image-resize">
+				<img *ngIf="display_taken_image" src="{{display_taken_image}}" class="image-resize">
+			</div>
+			<button ion-button (click)="capture_image()" type="submit" class="rounded" color="pacific-dream">Take New Image</button>
+
+      <ion-label color="primary" style="margin-left:10px;">Name</ion-label>
+			<ion-item class="input-rounded">
+				<ion-input [formControl]="profileForm.controls['name']" name="name" type="text" value="{{get_user.name}}" required>
+				</ion-input>
+      </ion-item>
+			<p *ngIf="!profileForm.controls.name.valid && profileForm.controls.name.dirty" color="danger" padding-left>
+				Valid name is required
+			</p>
+
+      <ion-label color="primary" style="margin-left:10px; margin-top:20spx">Email</ion-label>
+			<ion-item class="input-rounded">
+				{{get_user.email}}
+			</ion-item>
+
+      <ion-label color="primary" style="margin-left:10px; margin-top:20spx">Phone</ion-label>
+			<ion-item class="input-rounded">
+				<ion-input [formControl]="profileForm.controls['phone']" name="phone" type="tel" value="{{get_user.phone}}" required>
+				</ion-input>
+			</ion-item>
+			<p *ngIf="!profileForm.controls.phone.valid && profileForm.controls.phone.dirty" color="danger" padding-left>
+				Valid phone number is required
+      </p>
+      
+      <ion-label color="primary" style="margin-left:10px; margin-top:20spx">Password</ion-label>
+			<ion-item class="input-rounded">
+				<ion-input [formControl]="profileForm.controls['password']" name="password" type="password" required>
+				</ion-input>
+			</ion-item>
+			<p *ngIf="!profileForm.controls.password.valid && profileForm.controls.password.dirty" color="danger" padding-left>
+				Valid password is required
+      </p>
+
+      <ion-label color="primary" style="margin-left:10px; margin-top:20spx">Confirm Password</ion-label>
+			<ion-item class="input-rounded">
+				<ion-input [formControl]="profileForm.controls['c_password']" name="c_password" type="password" required>
+				</ion-input>
+			</ion-item>
+			<p *ngIf="!profileForm.controls.phone.valid && profileForm.controls.phone.dirty" color="danger" padding-left>
+				Valid confirm password is required
+      </p>
+
+		</ion-list>
+
+		<ion-row responsive-sm>
+			<ion-col>
+				<button ion-button (click)="edit_profile(get_user, display_taken_image)" type="submit" class="rounded" color="pacific-dream" block>Submit</button>
+			</ion-col>
+			<ion-col>
+				<button ion-button (click)="goback()" class="rounded" color="deep-sea-space" block>Cancel</button>
+			</ion-col>
+		</ion-row>
+  </form>
+</ion-content>

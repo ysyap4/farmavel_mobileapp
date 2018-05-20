@@ -1,0 +1,32 @@
+page-information {
+    .rounded {
+        width: 100%;
+        height: 40px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+      }
+      
+    .input-rounded {
+        width: 100%;
+        height: 40px;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        border-radius: 10px;
+        background-color: rgba(88, 89, 90, 0.4);
+    }
+
+    .title-padding {
+        padding-bottom: 30px;
+    }
+
+    .image-resize {
+        width: 200px;
+        height: 200px;
+    }
+
+    .image-padding {
+        padding-left: 20%;
+        padding-bottom: 20px;
+    }
+}

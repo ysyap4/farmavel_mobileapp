@@ -1,0 +1,24 @@
+page-authentication {
+    .spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .rounded {
+        width: 100%;
+        height: 40px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+      }
+
+    .input-rounded {
+        width: 100%;
+        height: 40px;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        border-radius: 10px;
+        background-color: rgba(88, 89, 90, 0.4);
+    }
+}

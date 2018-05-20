@@ -1,0 +1,33 @@
+page-appointment {
+    .rounded {
+        width: 100%;
+        height: 40px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+      }
+
+    .input-rounded {
+        width: 100%;
+        height: 40px;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        border-radius: 10px;
+        background-color: rgba(88, 89, 90, 0.4);
+    }
+
+    .title-padding {
+        padding-bottom: 30px;
+    }
+
+    #ionselect_maxwidth {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    #container {
+        width: 300px;
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+}

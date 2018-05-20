@@ -1,5 +1,5 @@
 // Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
+// http://ionicframework.com/docs/v2/theming/
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
@@ -20,7 +20,7 @@ $app-direction: ltr;
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 
 
@@ -33,13 +33,24 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
-);
+    primary:   (base: #bdc3c7, contrast:#2c3e50),
+    secondary:  (base: #03A9F4, contrast: #000),
+    danger:     #f43e00,
+    light:      (base:#C4E0E5, contrast:#4CA1AF),
+    dark:       (base:#93F9B9, contrast:#1D976C),
+    orca:(base:#093637, contrast:#44A08D),
+    pacific-dream:(base:#34e89e, contrast:#0f3443),
+    royal:      (base:#141E30, contrast:#243B55),
+    deep-sea-space:(base:#2C3E50, contrast:#4CA1AF),
+    alert:      #F39C12,
+    favorite:   #69BB7B,
+    twitter:    #1da1f4,
+    google:     #dc4a38,
+    vimeo:      #23b6ea,
+    facebook:   #3b5998
+  );
 
 
 // App iOS Variables
@@ -70,13 +81,14 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+//@import "ionic.theme.default";
+@import "./dark/dark.scss";
 
 
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/ionicons/
+// http://ionicframework.com/docs/v2/ionicons/
 
 @import "ionic.ionicons";
 

@@ -1,0 +1,110 @@
+<!--
+  Generated template for the AppointmentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Appointment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content-image-background">
+
+  <form [formGroup]="appointmentForm">
+		<ion-list id="container">
+
+      <h4 class="title-padding">Make Appointment</h4>
+
+      <ion-label color="primary" style="margin-left:10px;">Patient Name</ion-label>
+			<ion-item class="input-rounded" *ngIf="get_user">
+				{{get_user.name}}
+      </ion-item>
+      
+      <ion-label color="primary" style="margin-left:10px; margin-top:20px">Medicine Name</ion-label>
+			<ion-item class="input-rounded" *ngIf="get_medicine">
+				<ion-input [formControl]="appointmentForm.controls['app_medicine']" name="app_medicine" type="text" value="{{get_medicine.med_name}}" required>
+				</ion-input>
+      </ion-item>
+      <ion-item class="input-rounded" *ngIf="get_medicine == null">
+        <ion-input [formControl]="appointmentForm.controls['app_medicine']" name="app_medicine" type="text" required>
+        </ion-input>
+      </ion-item>
+			<p *ngIf="!appointmentForm.controls.app_medicine.valid && appointmentForm.controls.app_medicine.dirty" color="danger" padding-left>
+				Valid medicine name is required
+      </p>
+      
+      <ion-label color="primary" style="margin-left:10px; margin-top:20px">Appointment Location</ion-label>
+      <ion-item class="input-rounded">
+        <ion-select id="ionselect_maxwidth" [formControl]="appointmentForm.controls['app_location']" [(ngModel)]="app_location" name="app_location" type="text" required>
+          <ion-label>Appointment Location</ion-label>
+          <ion-option value="Batu Pahat">Batu Pahat</ion-option>
+          <ion-option value="Johor Bahru">Johor Bahru</ion-option>
+          <ion-option value="Muar">Muar</ion-option>
+          <ion-option value="Segamat">Segamat</ion-option>
+          <ion-option value="Kulaijaya">Kulaijaya</ion-option>
+        </ion-select>
+      </ion-item>
+      <p *ngIf="!appointmentForm.controls.app_location.valid && appointmentForm.controls.app_location.dirty" color="danger" padding-left>
+          Valid appointment location is required
+      </p>
+
+      <ion-label color="primary" style="margin-left:10px; margin-top:20px">Appointment Method</ion-label>
+      <ion-item class="input-rounded">
+        <ion-select id="ionselect_maxwidth" [formControl]="appointmentForm.controls['app_method']" name="app_method" type="text" required>
+          <ion-label>Appointment Method</ion-label>
+            <ion-option value="OTC">Over The Counter (OTC)</ion-option>
+            <ion-option value="PDT">Pharmacy Drive Thru (PDT)</ion-option>
+            <ion-option value="L4U">Locker4U (L4U)</ion-option>
+            <ion-option value="UMP1M">Ubat Melalui Pos 1Malaysia (UMP1M)</ion-option>
+        </ion-select>
+      </ion-item>
+      <p *ngIf="!appointmentForm.controls.app_method.valid && appointmentForm.controls.app_method.dirty" color="danger" padding-left>
+          Valid appointment method is required
+      </p>
+
+      <ion-label color="primary" style="margin-left:10px; margin-top:20px">Appointment Date</ion-label>
+			<ion-item class="input-rounded">
+        <span ion-datepicker [value]="get_date" (ionChanged)="show_date($event)" clear class="ScheduleDate">
+          <span *ngIf="get_date"> <ion-icon name="clipboard" item-left ></ion-icon> {{ get_date | date:'dd / MM / yyyy' }} </span>
+        </span>
+      </ion-item>
+
+      <ion-label color="primary" style="margin-left:10px; margin-top:20px">Appointment Time</ion-label>
+			<ion-item class="input-rounded">
+        <ion-select id="ionselect_maxwidth" [formControl]="appointmentForm.controls['app_time']" name="app_time" type="text" required>
+          <ion-label>Appointment Time</ion-label>
+            <ion-option value="8">8:00</ion-option>
+            <ion-option value="9">9:00</ion-option>
+            <ion-option value="10">10:00</ion-option>
+            <ion-option value="11">11:00</ion-option>
+            <ion-option value="12">12:00</ion-option>
+            <ion-option value="13">13:00</ion-option>
+            <ion-option value="14">14:00</ion-option>
+            <ion-option value="15">15:00</ion-option>
+            <ion-option value="16">16:00</ion-option>
+            <ion-option value="17">17:00</ion-option>
+            <ion-option value="18">18:00</ion-option>
+        </ion-select>
+			</ion-item>
+			<p *ngIf="!appointmentForm.controls.app_time.valid && appointmentForm.controls.app_time.dirty" color="danger" padding-left>
+				Valid appointment time is required
+      </p>
+
+		</ion-list>
+
+		<ion-row responsive-sm>
+			<ion-col>
+				<button ion-button (click)="make_appointment(get_user, get_date)" type="submit"class="rounded" color="pacific-dream" block>Submit</button>
+			</ion-col>
+			<ion-col *ngIf="get_medicine">
+				<button ion-button (click)="goback()" class="rounded" color="deep-sea-space" block>Cancel</button>
+			</ion-col>
+		</ion-row>
+  </form>
+
+</ion-content>
